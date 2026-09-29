@@ -4,142 +4,284 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>灵魂从不卑微——《简·爱》独立人格成长史</title>
-<meta name="description" content="《简·爱》名著讲解课堂展示：22 秒 AI 动画视频 + 五幕人物弧光讲解">
+<meta name="description" content="《简·爱》名著讲解课堂展示：选题·策划·视频·讲稿·方法·工具·总结">
 <style>
   :root {
-    --ink: #3a2f28;
-    --ink-soft: #6f6157;
-    --paper: #f7f2e9;
-    --card: #fffdf8;
-    --accent: #8c5b3f;
-    --accent-soft: #c9a227;
-    --line: #e5dcc9;
+    --ink: #2e2318;
+    --ink-soft: #6b5b47;
+    --paper: #f5edda;
+    --paper-deep: #ede1c4;
+    --card: #faf4e6;
+    --seal: #9e2b25;
+    --gold: #a8842c;
+    --line: #d8c9a5;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
-    font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", serif;
-    background: var(--paper);
+    font-family: "Noto Serif SC", "STZhongsong", "SimSun", serif;
+    background:
+      repeating-linear-gradient(0deg, rgba(168,132,44,.025) 0 1px, transparent 1px 3px),
+      linear-gradient(180deg, var(--paper-deep) 0%, var(--paper) 220px, var(--paper) 100%);
     color: var(--ink);
-    line-height: 1.9;
+    line-height: 2.0;
   }
-  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 22px; }
 
-  /* ---------- hero ---------- */
+  /* ============ 首屏 ============ */
   .hero {
+    position: relative;
     text-align: center;
-    padding: 72px 20px 56px;
-    background: linear-gradient(180deg, #efe6d4 0%, var(--paper) 100%);
-    border-bottom: 1px solid var(--line);
+    padding: 84px 30px 66px;
+    margin: 18px;
+    border: 1px solid var(--line);
+    outline: 3px double var(--gold);
+    outline-offset: 6px;
+  }
+  .seal {
+    position: absolute;
+    top: 26px; right: 26px;
+    writing-mode: vertical-rl;
+    background: var(--seal);
+    color: #f5edda;
+    font-size: 15px;
+    letter-spacing: 6px;
+    padding: 12px 7px;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(158,43,37,.35);
   }
   .hero .tag {
     display: inline-block;
     font-size: 13px;
-    letter-spacing: 6px;
-    color: var(--accent);
-    border: 1px solid var(--accent);
-    border-radius: 999px;
-    padding: 4px 18px;
-    margin-bottom: 26px;
+    letter-spacing: 8px;
+    color: var(--seal);
+    border-top: 1px solid var(--gold);
+    border-bottom: 1px solid var(--gold);
+    padding: 6px 22px;
+    margin-bottom: 30px;
   }
   .hero h1 {
-    font-size: clamp(30px, 7vw, 44px);
-    letter-spacing: 4px;
+    font-size: clamp(34px, 8vw, 52px);
+    letter-spacing: 10px;
     font-weight: 700;
   }
-  .hero h1 span { color: var(--accent); }
+  .hero h1 span { color: var(--seal); }
   .hero .sub {
-    margin-top: 18px;
-    font-size: 15px;
+    margin-top: 20px;
+    font-size: 16px;
     color: var(--ink-soft);
-    letter-spacing: 2px;
+    letter-spacing: 3px;
   }
   .hero .quote {
-    margin-top: 30px;
-    font-size: 17px;
-    color: var(--accent);
-    font-style: italic;
+    margin-top: 32px;
+    font-family: "KaiTi", "STKaiti", serif;
+    font-size: 18px;
+    color: var(--ink);
   }
+  .hero .quote::before, .hero .quote::after { content: " ❦ "; color: var(--gold); }
 
-  /* ---------- section ---------- */
-  section { padding: 56px 0; }
+  /* ============ 锚点导航 ============ */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 9;
+    background: rgba(245,237,218,.96);
+    border-bottom: 1px solid var(--line);
+    text-align: center;
+    padding: 10px 0;
+  }
+  nav a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin: 0 12px;
+    padding: 2px 4px;
+  }
+  nav a:hover { color: var(--seal); border-bottom: 1px solid var(--seal); }
+
+  /* ============ 板块通用 ============ */
+  section { padding: 64px 0 10px; }
+  .sec-head { text-align: center; margin-bottom: 40px; }
   .sec-title {
-    text-align: center;
-    font-size: 24px;
-    letter-spacing: 4px;
-    margin-bottom: 8px;
+    display: inline-block;
+    font-size: 26px;
+    letter-spacing: 6px;
+    position: relative;
+    padding: 0 34px;
   }
-  .sec-title::after {
+  .sec-title::before, .sec-title::after {
     content: "";
-    display: block;
-    width: 44px; height: 2px;
-    background: var(--accent-soft);
-    margin: 14px auto 0;
+    position: absolute;
+    top: 50%; width: 22px; height: 1px;
+    background: var(--gold);
   }
-  .sec-desc {
+  .sec-title::before { left: 0; }
+  .sec-title::after { right: 0; }
+  .sec-sub {
     text-align: center;
+    font-family: "KaiTi", "STKaiti", serif;
+    font-size: 15px;
+    color: var(--ink-soft);
+    margin-top: 6px;
+    letter-spacing: 2px;
+  }
+  .ornament { text-align: center; color: var(--gold); font-size: 18px; padding: 46px 0 0; }
+  .ornament::before { content: "❦ ❦ ❦"; letter-spacing: 14px; }
+
+  /* ============ 选题 ============ */
+  .topic-main {
+    background: var(--card);
+    border: 1px solid var(--line);
+    outline: 1px solid var(--line);
+    outline-offset: -5px;
+    border-radius: 6px;
+    padding: 28px 30px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .topic-main .kicker { font-size: 13px; letter-spacing: 4px; color: var(--seal); }
+  .topic-main h3 { font-size: 23px; letter-spacing: 2px; margin: 10px 0 14px; }
+  .topic-main p { font-size: 15px; color: var(--ink-soft); }
+  .topic-main .line {
+    font-family: "KaiTi", "STKaiti", serif;
+    color: var(--seal);
+    margin-top: 12px;
+  }
+  .topics { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; }
+  .topic {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 20px 18px;
+  }
+  .topic .no {
+    font-family: "KaiTi", "STKaiti", serif;
+    font-size: 22px;
+    color: var(--gold);
+  }
+  .topic h4 { font-size: 16px; margin: 6px 0 8px; letter-spacing: 1px; }
+  .topic p { font-size: 13.5px; color: var(--ink-soft); line-height: 1.9; }
+
+  /* ============ 策划 ============ */
+  .plan {
+    background: var(--card);
+    border: 1px solid var(--line);
+    outline: 1px solid var(--line);
+    outline-offset: -5px;
+    border-radius: 6px;
+    padding: 28px 30px;
+  }
+  .plan dl { margin-bottom: 6px; }
+  .plan dt {
+    display: inline-block;
+    font-weight: 700;
+    color: var(--seal);
+    letter-spacing: 2px;
+    margin-right: 8px;
+  }
+  .plan .row { margin-bottom: 14px; font-size: 15px; }
+  .plan ol { margin: 6px 0 0 24px; font-size: 15px; }
+  .plan li { margin-bottom: 4px; }
+  .plan .redline {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--line);
     font-size: 14px;
     color: var(--ink-soft);
-    margin-bottom: 36px;
   }
+  .plan .redline b { color: var(--seal); }
 
-  /* ---------- video ---------- */
+  /* ============ 视频 ============ */
   .video-box {
-    max-width: 340px;
+    max-width: 350px;
     margin: 0 auto;
-    border-radius: 18px;
+    border: 1px solid var(--line);
+    outline: 3px double var(--gold);
+    outline-offset: 5px;
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 18px 50px rgba(58, 47, 40, .25);
+    box-shadow: 0 18px 50px rgba(46,35,24,.28);
     background: #000;
   }
   .video-box video { display: block; width: 100%; height: auto; }
   .video-note {
     text-align: center;
-    font-size: 13px;
+    font-family: "KaiTi", "STKaiti", serif;
+    font-size: 13.5px;
     color: var(--ink-soft);
-    margin-top: 16px;
+    margin-top: 18px;
   }
 
-  /* ---------- acts ---------- */
+  /* ============ 五幕 ============ */
   .act {
     display: flex;
-    gap: 18px;
+    gap: 20px;
     background: var(--card);
     border: 1px solid var(--line);
-    border-radius: 16px;
+    outline: 1px solid var(--line);
+    outline-offset: -5px;
+    border-radius: 6px;
     overflow: hidden;
-    margin-bottom: 22px;
-    box-shadow: 0 6px 18px rgba(58, 47, 40, .06);
+    margin-bottom: 24px;
+    box-shadow: 0 6px 18px rgba(46,35,24,.07);
   }
-  .act img {
-    width: 42%;
-    object-fit: cover;
-    display: block;
-    flex-shrink: 0;
-  }
-  .act .txt { padding: 18px 18px 18px 0; }
-  .act .num {
-    font-size: 12px;
+  .act img { width: 42%; object-fit: cover; display: block; flex-shrink: 0; }
+  .act .txt { padding: 20px 20px 20px 0; }
+  .act .no {
+    display: inline-block;
+    font-family: "KaiTi", "STKaiti", serif;
+    font-size: 15px;
+    color: #f5edda;
+    background: var(--gold);
+    border-radius: 3px;
+    padding: 1px 12px;
     letter-spacing: 3px;
-    color: var(--accent-soft);
-    font-weight: 700;
   }
-  .act h3 { font-size: 19px; margin: 4px 0 8px; letter-spacing: 2px; }
+  .act h3 { font-size: 19px; margin: 10px 0 8px; letter-spacing: 2px; }
   .act p { font-size: 14.5px; color: var(--ink-soft); }
   @media (max-width: 520px) {
     .act { flex-direction: column; }
-    .act img { width: 100%; height: 190px; }
+    .act img { width: 100%; height: 200px; }
     .act .txt { padding: 16px 18px 20px; }
   }
 
-  /* ---------- process ---------- */
+  /* ============ 讲稿 ============ */
+  .script { position: relative; }
+  .cue {
+    position: relative;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 18px 22px 18px 88px;
+    margin-bottom: 14px;
+    font-size: 15px;
+    color: var(--ink);
+  }
+  .cue .label {
+    position: absolute;
+    left: 16px; top: 18px;
+    writing-mode: vertical-rl;
+    font-family: "KaiTi", "STKaiti", serif;
+    font-size: 15px;
+    letter-spacing: 4px;
+    color: #f5edda;
+    background: var(--seal);
+    border-radius: 3px;
+    padding: 10px 5px;
+  }
+  .cue.gold .label { background: var(--gold); }
+  .cue p { color: var(--ink-soft); font-size: 14.5px; }
+  .cue b { color: var(--ink); }
+
+  /* ============ 方法 ============ */
   .steps { counter-reset: step; }
   .step {
     position: relative;
-    padding: 14px 16px 14px 58px;
+    padding: 15px 18px 15px 96px;
     background: var(--card);
     border: 1px solid var(--line);
-    border-radius: 12px;
+    border-radius: 6px;
     margin-bottom: 12px;
     font-size: 14.5px;
     color: var(--ink-soft);
@@ -147,87 +289,161 @@
   .step b { color: var(--ink); }
   .step::before {
     counter-increment: step;
-    content: counter(step);
+    content: counter(step, cjk-ideographic);
     position: absolute;
-    left: 14px; top: 50%;
+    left: 20px; top: 50%;
     transform: translateY(-50%);
-    width: 30px; height: 30px;
-    border-radius: 50%;
-    background: var(--accent);
-    color: #fff;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-family: "KaiTi", "STKaiti", serif;
+    font-size: 24px;
+    color: var(--seal);
+  }
+  .step::after {
+    content: "";
+    position: absolute;
+    left: 64px; top: 14px; bottom: 14px;
+    width: 1px;
+    background: var(--line);
   }
 
-  /* ---------- tools ---------- */
-  .tools {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-  }
+  /* ============ 工具 ============ */
+  .tools { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
   .tool {
     background: var(--card);
     border: 1px solid var(--line);
-    border-radius: 999px;
-    padding: 8px 20px;
+    border-radius: 4px;
+    padding: 10px 22px;
     font-size: 14px;
   }
-  .tool b { color: var(--accent); }
+  .tool b { color: var(--seal); letter-spacing: 1px; }
 
-  /* ---------- footer ---------- */
-  footer {
-    text-align: center;
-    padding: 40px 20px 60px;
-    font-size: 13px;
-    color: var(--ink-soft);
-    border-top: 1px solid var(--line);
-  }
-  footer .quote { color: var(--accent); font-size: 15px; margin-bottom: 10px; }
-
-  /* ---------- summary ---------- */
+  /* ============ 总结 ============ */
   .reflect {
     background: var(--card);
     border: 1px solid var(--line);
-    border-left: 4px solid var(--accent);
-    border-radius: 12px;
-    padding: 24px 26px;
+    outline: 1px solid var(--line);
+    outline-offset: -5px;
+    border-radius: 6px;
+    padding: 28px 30px;
   }
-  .reflect p { font-size: 14.5px; color: var(--ink-soft); margin-bottom: 12px; }
+  .reflect p { font-size: 14.5px; color: var(--ink-soft); margin-bottom: 14px; }
   .reflect p:last-child { margin-bottom: 0; }
-  .reflect b { color: var(--accent); }
+  .reflect b { color: var(--seal); letter-spacing: 1px; }
+
+  /* ============ 页脚 ============ */
+  footer {
+    text-align: center;
+    margin-top: 70px;
+    padding: 46px 20px 64px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    border-top: 3px double var(--gold);
+  }
+  footer .quote {
+    font-family: "KaiTi", "STKaiti", serif;
+    color: var(--seal);
+    font-size: 17px;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+  }
 </style>
 </head>
 <body>
 
 <header class="hero">
+  <div class="seal">简·爱</div>
   <span class="tag">名著讲解 · 课堂展示</span>
   <h1>灵魂<span>从不卑微</span></h1>
   <div class="sub">——《简·爱》中的独立人格成长史——</div>
-  <div class="quote">「我们是平等的，至少我们通过坟墓，平等地站在上帝面前。」</div>
+  <div class="quote">我们是平等的，至少我们通过坟墓，平等地站在上帝面前。</div>
 </header>
+
+<nav>
+  <a href="#topic">选题</a><a href="#plan">策划</a><a href="#video">视频</a><a href="#acts">五幕</a><a href="#script">讲稿</a><a href="#process">方法</a><a href="#tools">工具</a><a href="#summary">总结</a>
+</nav>
 
 <main class="wrap">
 
+  <!-- 选题 -->
+  <section id="topic">
+    <div class="sec-head">
+      <h2 class="sec-title">讲解选题</h2>
+      <div class="sec-sub">一题为主，三题备选</div>
+    </div>
+    <div class="topic-main">
+      <div class="kicker">主选题</div>
+      <h3>《灵魂从不卑微——〈简·爱〉中的独立人格成长史》</h3>
+      <p>不讲爱情故事，讲一个平凡孤女如何在寄人篱下、不公与诱惑面前，长成精神独立、灵魂平等的人。</p>
+      <p class="line">讲解主线：自尊 → 坚守 → 离开 → 独立 → 平等</p>
+    </div>
+    <div class="topics">
+      <div class="topic">
+        <div class="no">壹</div>
+        <h4>平凡的简·爱，不平凡的反抗</h4>
+        <p>从三次"离开"（盖茨黑德、罗沃德、桑菲尔德）看她如何拒绝屈从。</p>
+      </div>
+      <div class="topic">
+        <div class="no">贰</div>
+        <h4>夏洛蒂·勃朗特：把自己写进小说</h4>
+        <p>作者生平与简·爱的互文，理解"这是她的心声"。</p>
+      </div>
+      <div class="topic">
+        <div class="no">叁</div>
+        <h4>一百八十年前的独立宣言</h4>
+        <p>维多利亚时代女性为何没有话语权，简·爱为什么超前。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ornament"></div>
+
+  <!-- 策划 -->
+  <section id="plan">
+    <div class="sec-head">
+      <h2 class="sec-title">策划方案</h2>
+      <div class="sec-sub">课堂五分钟 · 视频引入 口头展开</div>
+    </div>
+    <div class="plan">
+      <div class="row"><dt>主题</dt>《灵魂从不卑微——〈简·爱〉中的独立人格成长史》</div>
+      <div class="row"><dt>受众</dt>课堂展示，时长约 5 分钟；视频开场引入，讲解词展开</div>
+      <div class="row"><dt>结构</dt>
+        <ol>
+          <li><b>开场</b>：播放 22 秒视频，抛出问题"平凡的孤女凭什么赢得尊重？"</li>
+          <li><b>主线</b>：五幕人物弧光，配八幕插画对照</li>
+          <li><b>升华</b>：点出作者夏洛蒂·勃朗特——一份写给所有普通人的独立宣言</li>
+          <li><b>收束</b>："灵魂从不卑微"，呼应开场，回扣主题</li>
+        </ol>
+      </div>
+      <div class="redline"><b>风格红线</b>：重人物弧光，不做外貌与贫穷卖点（外貌一律以"平凡/普通"概括）；弱化爱情线，不写情感纠葛细节；主线是思想与作者表达；课堂用语，克制不煽情。</div>
+    </div>
+  </section>
+
+  <div class="ornament"></div>
+
+  <!-- 视频 -->
   <section id="video">
-    <h2 class="sec-title">开场视频</h2>
-    <p class="sec-desc">22 秒 · AI 动画 · 旁白配音 · 逐句字幕</p>
+    <div class="sec-head">
+      <h2 class="sec-title">开场视频</h2>
+      <div class="sec-sub">22 秒 · AI 动画 · 旁白配音 · 逐句字幕</div>
+    </div>
     <div class="video-box">
       <video src="assets/jane-eyre-22s.mp4" controls playsinline preload="metadata"></video>
     </div>
-    <p class="video-note">画面：八幕 AI 动画插画 &nbsp;|&nbsp; 配音：温和沉静女声（1.35 倍速，末句 1.2 倍收束）</p>
+    <p class="video-note">画面：八幕 AI 动画插画 ｜ 配音：温和沉静女声（1.35 倍速，末句 1.2 倍收束）</p>
   </section>
 
+  <div class="ornament"></div>
+
+  <!-- 五幕 -->
   <section id="acts">
-    <h2 class="sec-title">五幕人物弧光</h2>
-    <p class="sec-desc">自尊 → 坚守 → 离开 → 独立 → 平等</p>
+    <div class="sec-head">
+      <h2 class="sec-title">五幕人物弧光</h2>
+      <div class="sec-sub">自尊 · 坚守 · 离开 · 独立 · 平等</div>
+    </div>
 
     <div class="act">
       <img src="assets/p02.png" alt="倔强的孤女">
       <div class="txt">
-        <div class="num">第一幕 · 自尊</div>
+        <span class="no">第一幕 · 自尊</span>
         <h3>寄人篱下的反抗</h3>
         <p>平凡的简·爱寄人篱下，却从未停止反抗。在盖茨黑德庄园，她被冷眼、被关进红房子，但她始终不肯把屈辱咽下去——反抗，是她保护自尊的唯一方式。</p>
       </div>
@@ -236,7 +452,7 @@
     <div class="act">
       <img src="assets/p03.png" alt="烛光苦读">
       <div class="txt">
-        <div class="num">第二幕 · 坚守</div>
+        <span class="no">第二幕 · 坚守</span>
         <h3>可以贫穷，不可以卑微</h3>
         <p>在罗沃德学校，她靠读书和努力站稳脚跟。她渴望被当作独立的人，而不是被怜悯。她学会了本领，更守住了原则。</p>
       </div>
@@ -245,7 +461,7 @@
     <div class="act">
       <img src="assets/p06.png" alt="风雨荒原">
       <div class="txt">
-        <div class="num">第三幕 · 离开</div>
+        <span class="no">第三幕 · 离开</span>
         <h3>宁可离开，也要守住自我</h3>
         <p>面对不公与诱惑，她宁可离开也要守住自我。当留下意味着放弃尊严，她选择连夜出走——哪怕前方是风雨荒原。</p>
       </div>
@@ -254,7 +470,7 @@
     <div class="act">
       <img src="assets/p07.png" alt="山丘朝阳">
       <div class="txt">
-        <div class="num">第四幕 · 独立</div>
+        <span class="no">第四幕 · 独立</span>
         <h3>靠自己的力量长成完整的人</h3>
         <p>漂泊中她靠自己的力量，长成完整独立的人。教书、谋生、不依附任何人——尊严从来不是别人给的，是自己挣的。</p>
       </div>
@@ -263,16 +479,61 @@
     <div class="act">
       <img src="assets/p09.png" alt="平等归来">
       <div class="txt">
-        <div class="num">第五幕 · 平等</div>
+        <span class="no">第五幕 · 平等</span>
         <h3>灵魂对等的归来</h3>
         <p>归来的简·爱，不再是被挑选的一方，而是灵魂对等的、站在阳光下的人。</p>
       </div>
     </div>
   </section>
 
+  <div class="ornament"></div>
+
+  <!-- 讲稿 -->
+  <section id="script">
+    <div class="sec-head">
+      <h2 class="sec-title">正文文案</h2>
+      <div class="sec-sub">课堂讲解稿 · 与视频逐幕对应</div>
+    </div>
+    <div class="script">
+      <div class="cue gold">
+        <span class="label">开场</span>
+        <p><b>平凡的孤女，凭什么赢得尊重？</b>我们先看一段视频。</p>
+      </div>
+      <div class="cue">
+        <span class="label">自尊</span>
+        <p>平凡的简·爱寄人篱下，却从未停止反抗。在盖茨黑德庄园，她被冷眼、被关进红房子，但她始终不肯把屈辱咽下去——反抗，是她保护自尊的唯一方式。</p>
+      </div>
+      <div class="cue">
+        <span class="label">坚守</span>
+        <p>在罗沃德学校，她靠读书和努力站稳脚跟。她渴望被当作独立的人，而不是被怜悯。她学会了本领，更守住了原则：可以贫穷，不可以卑微。</p>
+      </div>
+      <div class="cue">
+        <span class="label">离开</span>
+        <p>面对不公与诱惑，她宁可离开也要守住自我。当留下意味着放弃尊严，她选择连夜出走——哪怕前方是风雨荒原。</p>
+      </div>
+      <div class="cue">
+        <span class="label">独立</span>
+        <p>漂泊中她靠自己的力量，长成完整独立的人。教书、谋生、不依附任何人，她证明了：尊严从来不是别人给的，是自己挣的。</p>
+      </div>
+      <div class="cue">
+        <span class="label">平等</span>
+        <p>归来的简·爱，不再是被挑选的一方，而是灵魂对等的、站在阳光下的人。</p>
+      </div>
+      <div class="cue gold">
+        <span class="label">收束</span>
+        <p>这一切，是<b>夏洛蒂·勃朗特</b>的心声：灵魂从不卑微。她把自己写进小说，替那个时代所有平凡的普通人，喊出了一句平等宣言——「我们是平等的」。愿我们每个人，都能像简·爱一样：平凡，但从不卑微。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ornament"></div>
+
+  <!-- 方法 -->
   <section id="process">
-    <h2 class="sec-title">创作方法</h2>
-    <p class="sec-desc">从文本到成片的六步流程</p>
+    <div class="sec-head">
+      <h2 class="sec-title">创作方法</h2>
+      <div class="sec-sub">从文本到成片的六步流程</div>
+    </div>
     <div class="steps">
       <div class="step"><b>定稿旁白</b>：五句 86 字，语速 1.35 倍（末句 1.2 倍），句间停顿 0.2 秒，以听感自然为先。</div>
       <div class="step"><b>八幕插画</b>：按剧情顺序生成 8 张油画风横版插画。</div>
@@ -283,9 +544,14 @@
     </div>
   </section>
 
+  <div class="ornament"></div>
+
+  <!-- 工具 -->
   <section id="tools">
-    <h2 class="sec-title">使用工具</h2>
-    <p class="sec-desc">全流程免费或低消耗</p>
+    <div class="sec-head">
+      <h2 class="sec-title">使用工具</h2>
+      <div class="sec-sub">全流程免费或低消耗</div>
+    </div>
     <div class="tools">
       <span class="tool"><b>图像生成</b> · 油画风插画</span>
       <span class="tool"><b>图生视频</b> · AI 动画化</span>
@@ -295,9 +561,14 @@
     </div>
   </section>
 
+  <div class="ornament"></div>
+
+  <!-- 总结 -->
   <section id="summary">
-    <h2 class="sec-title">总结与感悟</h2>
-    <p class="sec-desc">三版迭代的制作心得</p>
+    <div class="sec-head">
+      <h2 class="sec-title">总结与感悟</h2>
+      <div class="sec-sub">三版迭代的制作心得</div>
+    </div>
     <div class="reflect">
       <p><b>工具与工作流：</b>这次制作我使用了多种工作流智能体。第一版用的是 Trae，生成的图片 AI 味比较重，视频里问题较多、字幕乱码。</p>
       <p><b>第二版：</b>换用 WorkBuddy，图片更有质感，但 token 损耗也更快。这一版本想做有声书形式，有点误解了老师的要求，整段视频只有一张图片；旁白和字幕用 ChatCut 制作，质量很好但耗积分太快。也尝试了 Remotion，当时不会写代码——其实这一步可以让智能体帮忙编写。</p>
