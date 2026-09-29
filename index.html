@@ -1,41 +1,294 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <title>新媒体交互作品集</title>
-    <style>
-        body {
-            font-family: "Microsoft Yahei",sans-serif;
-            max-width:650px;
-            margin:50px auto;
-            padding:0 20px;
-        }
-        h2 {
-            color:#222;
-        }
-        h3{
-            color:#444;
-        }
-        a {
-            display:block;
-            font-size:18px;
-            margin:12px 0;
-            color:#2478e0;
-            text-decoration:none;
-        }
-        a:hover{color:#ff6b6b;}
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>灵魂从不卑微——《简·爱》独立人格成长史</title>
+<meta name="description" content="《简·爱》名著讲解课堂展示：22 秒 AI 动画视频 + 五幕人物弧光讲解">
+<style>
+  :root {
+    --ink: #3a2f28;
+    --ink-soft: #6f6157;
+    --paper: #f7f2e9;
+    --card: #fffdf8;
+    --accent: #8c5b3f;
+    --accent-soft: #c9a227;
+    --line: #e5dcc9;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+
+  /* ---------- hero ---------- */
+  .hero {
+    text-align: center;
+    padding: 72px 20px 56px;
+    background: linear-gradient(180deg, #efe6d4 0%, var(--paper) 100%);
+    border-bottom: 1px solid var(--line);
+  }
+  .hero .tag {
+    display: inline-block;
+    font-size: 13px;
+    letter-spacing: 6px;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    padding: 4px 18px;
+    margin-bottom: 26px;
+  }
+  .hero h1 {
+    font-size: clamp(30px, 7vw, 44px);
+    letter-spacing: 4px;
+    font-weight: 700;
+  }
+  .hero h1 span { color: var(--accent); }
+  .hero .sub {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    letter-spacing: 2px;
+  }
+  .hero .quote {
+    margin-top: 30px;
+    font-size: 17px;
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  /* ---------- section ---------- */
+  section { padding: 56px 0; }
+  .sec-title {
+    text-align: center;
+    font-size: 24px;
+    letter-spacing: 4px;
+    margin-bottom: 8px;
+  }
+  .sec-title::after {
+    content: "";
+    display: block;
+    width: 44px; height: 2px;
+    background: var(--accent-soft);
+    margin: 14px auto 0;
+  }
+  .sec-desc {
+    text-align: center;
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin-bottom: 36px;
+  }
+
+  /* ---------- video ---------- */
+  .video-box {
+    max-width: 340px;
+    margin: 0 auto;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 18px 50px rgba(58, 47, 40, .25);
+    background: #000;
+  }
+  .video-box video { display: block; width: 100%; height: auto; }
+  .video-note {
+    text-align: center;
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-top: 16px;
+  }
+
+  /* ---------- acts ---------- */
+  .act {
+    display: flex;
+    gap: 18px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 22px;
+    box-shadow: 0 6px 18px rgba(58, 47, 40, .06);
+  }
+  .act img {
+    width: 42%;
+    object-fit: cover;
+    display: block;
+    flex-shrink: 0;
+  }
+  .act .txt { padding: 18px 18px 18px 0; }
+  .act .num {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--accent-soft);
+    font-weight: 700;
+  }
+  .act h3 { font-size: 19px; margin: 4px 0 8px; letter-spacing: 2px; }
+  .act p { font-size: 14.5px; color: var(--ink-soft); }
+  @media (max-width: 520px) {
+    .act { flex-direction: column; }
+    .act img { width: 100%; height: 190px; }
+    .act .txt { padding: 16px 18px 20px; }
+  }
+
+  /* ---------- process ---------- */
+  .steps { counter-reset: step; }
+  .step {
+    position: relative;
+    padding: 14px 16px 14px 58px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    margin-bottom: 12px;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+  .step b { color: var(--ink); }
+  .step::before {
+    counter-increment: step;
+    content: counter(step);
+    position: absolute;
+    left: 14px; top: 50%;
+    transform: translateY(-50%);
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ---------- tools ---------- */
+  .tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  .tool {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+  .tool b { color: var(--accent); }
+
+  /* ---------- footer ---------- */
+  footer {
+    text-align: center;
+    padding: 40px 20px 60px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--line);
+  }
+  footer .quote { color: var(--accent); font-size: 15px; margin-bottom: 10px; }
+</style>
 </head>
 <body>
-    <h2>作品集导航</h2>
-    <h3>《简爱》名著讲解｜新媒体交互作品</h3>
-    <a href=" ">a. 选题</a >
-    <a href="./Assignment1/plan.md">b. 策划</a >
-    <a href="./Assignment1/article.md">c. 文案</a >
-    <a href="./Assignment1/images/">d. 素材</a >
-    <a href="./Assignment1/method.md">e. 方法</a >
-    <a href="./Assignment1/tool.md">f. 工具</a >
-    <a href="./Assignment1/video.mp4">g. 视频</a >
-    <a href="./Assignment1/summary.md">h. 总结</a >
+
+<header class="hero">
+  <span class="tag">名著讲解 · 课堂展示</span>
+  <h1>灵魂<span>从不卑微</span></h1>
+  <div class="sub">——《简·爱》中的独立人格成长史——</div>
+  <div class="quote">「我们是平等的，至少我们通过坟墓，平等地站在上帝面前。」</div>
+</header>
+
+<main class="wrap">
+
+  <section id="video">
+    <h2 class="sec-title">开场视频</h2>
+    <p class="sec-desc">22 秒 · AI 动画 · 旁白配音 · 逐句字幕</p>
+    <div class="video-box">
+      <video src="assets/jane-eyre-22s.mp4" controls playsinline preload="metadata"></video>
+    </div>
+    <p class="video-note">画面：八幕 AI 动画插画 &nbsp;|&nbsp; 配音：温和沉静女声（1.35 倍速，末句 1.2 倍收束）</p>
+  </section>
+
+  <section id="acts">
+    <h2 class="sec-title">五幕人物弧光</h2>
+    <p class="sec-desc">自尊 → 坚守 → 离开 → 独立 → 平等</p>
+
+    <div class="act">
+      <img src="assets/p02.png" alt="倔强的孤女">
+      <div class="txt">
+        <div class="num">第一幕 · 自尊</div>
+        <h3>寄人篱下的反抗</h3>
+        <p>平凡的简·爱寄人篱下，却从未停止反抗。在盖茨黑德庄园，她被冷眼、被关进红房子，但她始终不肯把屈辱咽下去——反抗，是她保护自尊的唯一方式。</p>
+      </div>
+    </div>
+
+    <div class="act">
+      <img src="assets/p03.png" alt="烛光苦读">
+      <div class="txt">
+        <div class="num">第二幕 · 坚守</div>
+        <h3>可以贫穷，不可以卑微</h3>
+        <p>在罗沃德学校，她靠读书和努力站稳脚跟。她渴望被当作独立的人，而不是被怜悯。她学会了本领，更守住了原则。</p>
+      </div>
+    </div>
+
+    <div class="act">
+      <img src="assets/p06.png" alt="风雨荒原">
+      <div class="txt">
+        <div class="num">第三幕 · 离开</div>
+        <h3>宁可离开，也要守住自我</h3>
+        <p>面对不公与诱惑，她宁可离开也要守住自我。当留下意味着放弃尊严，她选择连夜出走——哪怕前方是风雨荒原。</p>
+      </div>
+    </div>
+
+    <div class="act">
+      <img src="assets/p07.png" alt="山丘朝阳">
+      <div class="txt">
+        <div class="num">第四幕 · 独立</div>
+        <h3>靠自己的力量长成完整的人</h3>
+        <p>漂泊中她靠自己的力量，长成完整独立的人。教书、谋生、不依附任何人——尊严从来不是别人给的，是自己挣的。</p>
+      </div>
+    </div>
+
+    <div class="act">
+      <img src="assets/p09.png" alt="平等归来">
+      <div class="txt">
+        <div class="num">第五幕 · 平等</div>
+        <h3>灵魂对等的归来</h3>
+        <p>归来的简·爱，不再是被挑选的一方，而是灵魂对等的、站在阳光下的人。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <h2 class="sec-title">创作方法</h2>
+    <p class="sec-desc">从文本到成片的六步流程</p>
+    <div class="steps">
+      <div class="step"><b>定稿旁白</b>：五句 86 字，语速 1.35 倍（末句 1.2 倍），句间停顿 0.2 秒，以听感自然为先。</div>
+      <div class="step"><b>八幕插画</b>：按剧情顺序生成 8 张油画风横版插画。</div>
+      <div class="step"><b>人物动起来</b>：每张插画经 AI 图生视频，生成约 5 秒动画，取前 2.8 秒。</div>
+      <div class="step"><b>首尾帧推拉</b>：每段设置首尾帧缩放关键帧（1.27↔1.33 交替推拉），铺满无黑边。</div>
+      <div class="step"><b>配音字幕</b>：AI 女声按定稿语速朗读，逐句烧录两行居中字幕。</div>
+      <div class="step"><b>合成输出</b>：拼接为 22.5 秒 9:16 竖屏成片。</div>
+    </div>
+  </section>
+
+  <section id="tools">
+    <h2 class="sec-title">使用工具</h2>
+    <p class="sec-desc">全流程免费或低消耗</p>
+    <div class="tools">
+      <span class="tool"><b>图像生成</b> · 油画风插画</span>
+      <span class="tool"><b>图生视频</b> · AI 动画化</span>
+      <span class="tool"><b>剪映</b> · 草稿与关键帧</span>
+      <span class="tool"><b>ffmpeg</b> · 渲染合成字幕</span>
+      <span class="tool"><b>Edge-TTS</b> · 免费中文配音</span>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="quote">平凡，但从不卑微。</div>
+  <div>《简·爱》课堂展示项目 · 夏洛蒂·勃朗特</div>
+</footer>
+
 </body>
 </html>
