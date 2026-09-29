@@ -186,6 +186,18 @@
     border-top: 1px solid var(--line);
   }
   footer .quote { color: var(--accent); font-size: 15px; margin-bottom: 10px; }
+
+  /* ---------- summary ---------- */
+  .reflect {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--accent);
+    border-radius: 12px;
+    padding: 24px 26px;
+  }
+  .reflect p { font-size: 14.5px; color: var(--ink-soft); margin-bottom: 12px; }
+  .reflect p:last-child { margin-bottom: 0; }
+  .reflect b { color: var(--accent); }
 </style>
 </head>
 <body>
@@ -280,6 +292,18 @@
       <span class="tool"><b>剪映</b> · 草稿与关键帧</span>
       <span class="tool"><b>ffmpeg</b> · 渲染合成字幕</span>
       <span class="tool"><b>Edge-TTS</b> · 免费中文配音</span>
+    </div>
+  </section>
+
+  <section id="summary">
+    <h2 class="sec-title">总结与感悟</h2>
+    <p class="sec-desc">三版迭代的制作心得</p>
+    <div class="reflect">
+      <p><b>工具与工作流：</b>这次制作我使用了多种工作流智能体。第一版用的是 Trae，生成的图片 AI 味比较重，视频里问题较多、字幕乱码。</p>
+      <p><b>第二版：</b>换用 WorkBuddy，图片更有质感，但 token 损耗也更快。这一版本想做有声书形式，有点误解了老师的要求，整段视频只有一张图片；旁白和字幕用 ChatCut 制作，质量很好但耗积分太快。也尝试了 Remotion，当时不会写代码——其实这一步可以让智能体帮忙编写。</p>
+      <p><b>第三版：</b>先做成了横屏，再调整为竖屏。此时 ChatCut 就不太方便了：画面大小无法自适应，手动调容易把画面拉变形。所以最后还是用 WorkBuddy 生成了整个视频，虽然花了不少 token，但对比下来效果很好，字幕没有出错。</p>
+      <p><b>收获：</b>在视频制作过程中重新学习了许多新技能，认识了很多之前不知道的工作流智能体，日常做作业和生成视频时有了更多选择。</p>
+      <p><b>不足与反思：</b>语言输出有问题，prompt 给得不到位，导致智能体生成出现很多问题；不够细心，没有仔细看视频要求，还没做到举一反三；网站生成也出现过一些错误。这些都是接下来要改进的方向。</p>
     </div>
   </section>
 
